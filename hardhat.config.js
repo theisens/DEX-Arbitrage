@@ -1,5 +1,5 @@
-require("@nomiclabs/hardhat-waffle");
-require("dotenv").config();
+require('@nomiclabs/hardhat-waffle');
+require('dotenv').config();
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -14,12 +14,18 @@ module.exports = {
       url: `https://rpc.ftm.tools/`,
       accounts: [process.env.privateKey],
     },
+    testnet_aurora: {
+      url: 'https://testnet.aurora.dev',
+      accounts: [`0x${process.env.privateKey}`],
+      chainId: 1313161555,
+      // gasPrice: 120 * 1000000000,
+    },
   },
   solidity: {
     compilers: [
-      { version: "0.8.7" },
-      { version: "0.7.6" },
-      { version: "0.6.6" }
-    ]
+      { version: '0.8.7' },
+      { version: '0.7.6' },
+      { version: '0.6.6' },
+    ],
   },
 };
